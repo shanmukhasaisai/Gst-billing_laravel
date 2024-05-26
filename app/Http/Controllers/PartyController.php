@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Validator;
 
 class PartyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function addParty()
     {
         return view("party.add");

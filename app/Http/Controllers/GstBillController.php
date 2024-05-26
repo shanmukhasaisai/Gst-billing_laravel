@@ -7,6 +7,10 @@ use App\Models\Party;
 use Illuminate\Http\Request;
 class GstBillController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function addGstBill(){
         $data['parties']=Party::where('party_type','client')->orderBy('full_name')->get();
         return view("gst-bill.add",$data);

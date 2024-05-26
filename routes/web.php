@@ -29,3 +29,6 @@ Route::post('/create-gst-bill',[GstBillController::class,'createGstBill'])->name
 Route::get('/delete/{table}{id}',[AppController::class,'delete'])->name('delete');
 
 Route::resource('vendor-invoice',VendorInvoice::class);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

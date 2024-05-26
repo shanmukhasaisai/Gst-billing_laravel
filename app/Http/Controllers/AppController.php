@@ -9,9 +9,13 @@ use Illuminate\Support\Facades\DB;
 
 class AppController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
 
-        return view("dashboard");
+        return redirect()->route('login');
     }
     public function delete($table, $id){
         $param=array('is_deleted'=>1);
